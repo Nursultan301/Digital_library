@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+{% url 'home' as home %}
+{% url 'about' as about %}
+{% url 'contact' as contact %}
 {% load static %}
 <html lang="en">
 <head>
@@ -9,7 +12,7 @@
             content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
     <link rel="icon" href="{% static 'img/favicon.png' %}" type="image/png"/>
-    <title>Edustage Education</title>
+    <title>{% block title %}{% endblock title %}</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}"/>
     <link rel="stylesheet" href="{% static 'css/flaticon.css' %}"/>
@@ -52,14 +55,14 @@
                         id="navbarSupportedContent"
                 >
                     <ul class="nav navbar-nav menu_nav ml-auto">
-                        <li class="nav-item active">
+                        <li class="nav-item {% if request.path == home %} active {% endif %}">
                             <a class="nav-link" href="/">Главная</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="about-us.html">О нас</a>
+                        <li class="nav-item {% if request.path == about %} active {% endif %}">
+                            <a class="nav-link" href="{% url 'about' %}">О нас</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Контакты</a>
+                        <li class="nav-item {% if request.path == contact %} active {% endif %}">
+                            <a class="nav-link" href="{% url 'contact' %}">Контакты</a>
                         </li>
                     </ul>
                 </div>
@@ -81,7 +84,7 @@
                     популяризации идеи открытых учебных и прочих материалов. Так же как и в Википедии, Вы можете
                     способствовать развитию нашей идеи и добавлять новые книги, новую информацию или отправлять свои
                     идеи по улучшению библиотеки и её сервисов. Если Вы любите книги, Вы автор или издательство, почему
-                    бы не помочь построить библиотеку доступную для всех с открытыми материалами?</p>
+                    бы не помочь построить библиотеку доступную для всех с открытыми материалами</p>
             </div>
             <div class="col-lg-2 col-md-6 single-footer-widget">
                         Связаться с нами

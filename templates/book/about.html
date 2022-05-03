@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block title %}О нас{% endblock title %}
+{% load static %}
+{% block content %}
+<section class="banner_area">
+    <div class="banner_inner d-flex align-items-center">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="banner_content text-center">
+                        <h2>О нас</h2>
+                        <div class="page_link">
+                            <a href="/">Главная</a>
+                            <a href="{% url 'about' %}">О нас</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================End Home Banner Area =================-->
+
+<!--================ Start About Area =================-->
+<section class="about_area section_gap">
+    <div class="container">
+        <div class="row h_blog_item">
+            <div class="col-lg-6">
+                <div class="h_blog_img">
+                    <img class="img-fluid" src="{% static 'img/about.png' %} " alt=""/>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="h_blog_text">
+                    <div class="h_blog_text_inner left right">
+                        <h4>Открытая Электронная Библиотека Кыргызстана</h4>
+                        <p>
+                            Bib.kg является открытой, редактируемой электронной библиотекой, созданной с целью
+                            объединения и
+                            популяризации идеи открытых учебных и прочих материалов. Так же как и в Википедии, Вы можете
+                            способствовать развитию нашей идеи и добавлять новые книги, новую информацию или отправлять
+                            свои
+                            идеи по улучшению библиотеки и её сервисов. Если Вы любите книги, Вы автор или издательство,
+                            почему
+                            бы не помочь построить библиотеку доступную для всех с открытыми материалами
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--============
+{% endblock content %}
+==== End About Area =================-->

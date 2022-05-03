@@ -1,0 +1,24 @@
+{% for book in books %}
+	<div class="col-lg-6 col-md-6">
+    <div class="single_event position-relative">
+        <div class="event_thumb">
+            <img src="{{ book.img.url }}" width="500" alt=""/>
+        </div>
+        <div class="event_details">
+            <div class="d-flex mb-4">
+                <div class="date"><span>{{ book.create_at|date:"d" }}</span> {{ book.create_at|date:"M" }}</div>
+
+                <div class="time-location">
+                    <p>
+                        {{ book.create_at }}
+                    </p>
+                    <p>
+                        {{ book.title }}
+                    </p>
+                </div>
+            </div>
+            <a href="{% url 'detail' pk=book.pk %}" class="primary-btn rounded-0 mt-3">Читать</a>
+        </div>
+    </div>
+</div>
+{% endfor %}
