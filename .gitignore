@@ -44,3 +44,6 @@ make.bat
 Makefile
 
 doc-dev
+
+pyproject.toml
+poetry.lock
