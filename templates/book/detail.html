@@ -1,0 +1,115 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<!--================ Start Course Details Area =================-->
+<section class="course_details_area section_gap">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 course_details_left">
+                <div class="main_image">
+                    <img class="img-fluid" src="{{ object.img.url }}" width="500" alt="">
+                </div>
+                <div class="content_wrapper">
+                    <h4 class="title">{{ object.title }}</h4>
+                    <div class="content">
+
+                    </div>
+                    <form
+                            class="row contact_form mt-4"
+                            action="contact_process.php"
+                            method="post"
+                            id="contactForm"
+                            novalidate="novalidate"
+                    >
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input
+                                        type="text"
+                                        class="form-control"
+                                        id="name"
+                                        name="name"
+                                        placeholder="Enter your name"
+                                        onfocus="this.placeholder = ''"
+                                        onblur="this.placeholder = 'Enter your name'"
+                                        required=""
+                                />
+                            </div>
+                            <div class="form-group">
+                                <input
+                                        type="email"
+                                        class="form-control"
+                                        id="email"
+                                        name="email"
+                                        placeholder="Enter email address"
+                                        onfocus="this.placeholder = ''"
+                                        onblur="this.placeholder = 'Enter email address'"
+                                        required=""
+                                />
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                  <textarea
+                          class="form-control"
+                          name="message"
+                          id="message"
+                          rows="1"
+                          placeholder="Enter Message"
+                          onfocus="this.placeholder = ''"
+                          onblur="this.placeholder = 'Enter Message'"
+                          required=""
+                  ></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-12 text-right">
+                            <button type="submit" value="submit" class="btn primary-btn">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="col-lg-4 right-contents">
+                <ul>
+                    <li>
+                        <a class="justify-content-between d-flex" href="#">
+                            <p>Автор</p>
+                            {% for author_ in object.author.all %}
+                            <span class="or">{{ author_.name }}</span>
+                            {% endfor %}
+                        </a>
+                    </li>
+                    <li>
+                        <a class="justify-content-between d-flex" href="#">
+                            <p>Иллюстратор</p>
+                            <span>{{ object.illustrator }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="justify-content-between d-flex" href="#">
+                            <p>П-вод и адаптация</p>
+                            <span>{{ object.translation }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="justify-content-between d-flex" href="#">
+                            <p>Язык</p>
+                            <span>{{ object.language_v }}</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="justify-content-between d-flex" href="#">
+                            <p>Дата</p>
+                            <span>{{ object.create_at }}</span>
+                        </a>
+                    </li>
+                </ul>
+                <a href="{{ object.url }}" class="primary-btn2 text-uppercase enroll rounded-0 text-white">Читать</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!--================ End Course Details Area =================-->
+{% endblock content %}

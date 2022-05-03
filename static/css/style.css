@@ -3362,3 +3362,132 @@ h6 {
 /*---------------------------------------------------- */
 
 /*# sourceMappingURL=style.css.map */
+
+/*********************************
+11. Team
+*********************************/
+
+.team
+{
+	width: 100%;
+	padding-bottom: 60px;
+}
+.team_background
+{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.team_row
+{
+	margin-top: 43px;
+}
+.team_col
+{
+	margin-bottom: 40px;
+}
+.team_item
+{
+	width: 100%;
+}
+.team_image
+{
+	width: 180px;
+	height: 160px;
+	border-radius: 6px;
+	overflow: hidden;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: -86px;
+	z-index: 5;
+}
+.team_image img
+{
+	max-width: 100%;
+}
+.team_body
+{
+	width: 100%;
+	padding-top: 108px;
+	padding-bottom: 24px;
+	background: #FFFFFF;
+	border-radius: 6px;
+	box-shadow: 0px 1px 10px rgba(29,34,47,0.1);
+	text-align: center;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.team_item:hover .team_body
+{
+	box-shadow: 0px 5px 40px rgba(29,34,47,0.15);
+}
+.team_title a
+{
+	font-family: 'Roboto Slab', serif;
+	font-size: 20px;
+	font-weight: 700;
+	color: #384158;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.team_title a:hover
+{
+	color: #14bdee;
+}
+.team_subtitle
+{
+	font-size: 14px;
+	font-weight: 400;
+	color: #76777a;
+	margin-top: 6px;
+}
+.social_list
+{
+	margin-top: 16px;
+}
+.social_list ul li
+{
+	display: inline-block;
+}
+.social_list ul li:not(:last-child)
+{
+	margin-right: 10px;
+}
+.social_list ul li a i
+{
+	font-size: 18px;
+	color: #76777a;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
+.social_list ul li:hover a i
+{
+	color: #14bdee;
+}
+.team_col .team_item
+{
+	padding-left: 6px;
+	padding-right: 6px;
+}
+.team_col:first-child .team_item
+{
+	padding-left: 0;
+	padding-right: 6px;
+}
+.team_col:nth-child(4n) .team_item
+{
+	padding-left: 6px;
+	padding-right: 0;
+}
+
