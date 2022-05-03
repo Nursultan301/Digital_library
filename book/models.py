@@ -79,6 +79,7 @@ class Comment(models.Model):
     email = models.EmailField("E-mail")
     messages = models.TextField("Сообшения")
     date = models.DateField(auto_now_add=True)
+    book = models.ForeignKey(Book, on_delete=models.CASCADE, verbose_name="Книга")
 
     def __str__(self):
         return self.name

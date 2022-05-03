@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-	<!--================ Start Home Banner Area =================-->
+<!--================ Start Home Banner Area =================-->
 <section class="home_banner_area">
     <div class="banner_inner">
         <div class="container">
@@ -48,7 +48,7 @@
                     <div class="team_body">
                         <div class="team_title"><a href="{% url 'detail' pk=object.pk %}">{{ object.title }}</a></div>
                         {% for author_ in object.author.all %}
-                            <div class="team_subtitle">{{ author_.name }}</div>
+                        <div class="team_subtitle">{{ author_.name }}</div>
                         {% endfor %}
                         <div class="social_list">
                         </div>
@@ -72,10 +72,11 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-6 col-md-6">
+            {% for book in new_books %}
+            	<div class="col-lg-6 col-md-6">
                 <div class="single_event position-relative">
                     <div class="event_thumb">
-                        <img src="{% static 'img/event/e1.jpg' %}" alt=""/>
+                        <img src="{{ book.img.url }}" alt=""/>
                     </div>
                     <div class="event_details">
                         <div class="d-flex mb-4">
@@ -98,37 +99,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-6">
-                <div class="single_event position-relative">
-                    <div class="event_thumb">
-                        <img src="{% static 'img/event/e2.jpg' %}" alt=""/>
-                    </div>
-                    <div class="event_details">
-                        <div class="d-flex mb-4">
-                            <div class="date"><span>15</span> Jun</div>
-
-                            <div class="time-location">
-                                <p>
-                                    <span class="ti-time mr-2"></span> 12:00 AM - 12:30 AM
-                                </p>
-                                <p>
-                                    <span class="ti-location-pin mr-2"></span> Hilton Quebec
-                                </p>
-                            </div>
-                        </div>
-                        <p>
-                            One make creepeth man for so bearing their firmament won't
-                            fowl meat over seas great
-                        </p>
-                        <a href="#" class="primary-btn rounded-0 mt-3">View Details</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-12">
-                <div class="text-center pt-lg-5 pt-3">
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </div>
 </div>
