@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from book.models import Book, Author, Illustrator, Translation
+from book.models import Book, Author, Illustrator, Translation, Comment
 
 
 @admin.register(Book)
@@ -22,3 +22,8 @@ class IllustratorAdmin(admin.ModelAdmin):
 @admin.register(Translation)
 class TranslationAdmin(admin.ModelAdmin):
     list_display = ('name', 'date')
+
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email')

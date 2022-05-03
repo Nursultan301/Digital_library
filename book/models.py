@@ -71,3 +71,18 @@ class Book(models.Model):
     class Meta:
         verbose_name = 'Книга'
         verbose_name_plural = 'Книги'
+
+
+class Comment(models.Model):
+    """ Комментария """
+    name = models.CharField("Имя", max_length=50)
+    email = models.EmailField("E-mail")
+    messages = models.TextField("Сообшения")
+    date = models.DateField(auto_now_add=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Комментария'
+        verbose_name_plural = 'Комментарии'
