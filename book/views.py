@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, FormView
 
 from book.models import Book, Comment, Feedback
@@ -20,23 +19,20 @@ class BookDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['form'] = CommentForm()
-        context['comments'] = Comment.objects.filter(pk=self.kwargs.get('pk'))
+        context['comments'] = Comment.objects.filter(book__pk=self.kwargs.get('pk'))
         return context
 
 
 class CreateCommentView(CreateView):
+    """ Комментарии """
     model = Comment
     form_class = CommentForm
     template_name = 'book/detail.html'
-    success_url = '/'
+    success_url = "/detail/{book_id}/"
 
 
 def about(request):
     return render(request, 'book/about.html')
-
-
-def contact(request):
-    return render(request, 'book/contact.html')
 
 
 class CreateFeedbackView(FormView):
@@ -48,5 +44,3 @@ class CreateFeedbackView(FormView):
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
-
-

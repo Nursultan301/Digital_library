@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% block title %} {{ object.title }} {% endblock title %}
 {% block content %}
 <!--================ Start Course Details Area =================-->
 <section class="course_details_area section_gap">
@@ -79,11 +80,11 @@
                 </div>
             </form>
             <div class="col-lg-6 col-12 mt-4">
-                {% for comment in comments %}
-                <p>Имя: {{ comment.name }}</p>
-                <p>E-mail: {{ comment.email }}</p>
-                <p>Коментарии:<br> {{ comment.messages }}</p>
-                <hr>
+                {% for item in comments %}
+                    <p>Имя: {{ item.name }}</p>
+                    <p>E-mail: {{ item.email }}</p>
+                    <p>Коментарии: {{ item.messages }}</p>
+                    <hr>
                 {% endfor %}
             </div>
         </div>
