@@ -64,6 +64,19 @@
                         <li class="nav-item {% if request.path == contact %} active {% endif %}">
                             <a class="nav-link" href="{% url 'contact' %}">Контакты</a>
                         </li>
+                        {% if request.user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'logout' %}">Выход</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item {% if request.path == register %} active {% endif %}">
+                            <a class="nav-link" href="{% url 'register' %}">Регистрация</a>
+                        </li>
+                        <li class="nav-item {% if request.path == login %} active {% endif %}">
+                            <a class="nav-link" href="{% url 'login' %}">Войти</a>
+                        </li>
+                        {% endif %}
+
                     </ul>
                 </div>
             </div>
@@ -87,11 +100,11 @@
                     бы не помочь построить библиотеку доступную для всех с открытыми материалами</p>
             </div>
             <div class="col-lg-2 col-md-6 single-footer-widget">
-                        Связаться с нами
-                        г. Бишкек,
-                        ул. Чуй, 215
-                        Телефон: +996(312) 00-00-00
-                        Электронная почта: bib@gmail.com
+                Связаться с нами
+                г. Бишкек,
+                ул. Чуй, 215
+                Телефон: +996(312) 00-00-00
+                Электронная почта: bib@gmail.com
             </div>
         </div>
         <div class="row footer-bottom d-flex justify-content-between text-center">
@@ -99,7 +112,7 @@
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                 Бишкек &copy;<script>document.write(new Date().getFullYear());</script>
                 Электронная Библиотека | Осмонов Актан <i class="ti-heart"
-                                                                           aria-hidden="true"></i><a
+                                                          aria-hidden="true"></i><a
                     href="https://colorlib.com" target="_blank"></a>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </p>

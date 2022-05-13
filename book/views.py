@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.contrib.auth import login, logout
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView, FormView
 
 from book.models import Book, Comment, Feedback
-from book.forms import CommentForm, FeedbackForm
+from book.forms import CommentForm, FeedbackForm, UserRegisterForm, UserLoginForm
 
 
 class BookList(ListView):
@@ -36,6 +37,7 @@ def about(request):
 
 
 class CreateFeedbackView(FormView):
+    """Обратная связь"""
     model = Feedback
     form_class = FeedbackForm
     template_name = 'book/contact.html'
@@ -44,3 +46,32 @@ class CreateFeedbackView(FormView):
     def form_valid(self, form):
         form.save()
         return super().form_valid(form)
+
+
+def register(request):
+    if request.POST:
+        form = UserRegisterForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return redirect('/')
+    else:
+        form = UserRegisterForm()
+    return render(request, 'book/register.html', {"form": form})
+
+
+def user_login(request):
+    if request.POST:
+        form = UserLoginForm(data=request.POST)
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            return redirect('/')
+    else:
+        form = UserLoginForm()
+    return render(request, 'book/login.html', {'form': form})
+
+
+def user_logout(request):
+    logout(request)
+    return redirect('login')
